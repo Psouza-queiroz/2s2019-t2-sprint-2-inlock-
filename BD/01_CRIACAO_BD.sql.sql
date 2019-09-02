@@ -1,0 +1,33 @@
+CREATE DATABASE T_InLock
+
+USE T_InLock
+
+CREATE TABLE Usuarios
+(
+UsuarioId INT PRIMARY KEY IDENTITY
+,Email VARCHAR(255) NOT NULL UNIQUE
+,Senha VARCHAR(255) NOT NULL
+,PermissaoUsuario VARCHAR(255) NOT NULL
+);
+
+
+CREATE TABLE Estudios
+(
+	EstudioId		INT PRIMARY KEY IDENTITY
+	,NomeEstudio	VARCHAR(255) NOT NULL UNIQUE
+	,PaisOrigem		VARCHAR(255) NOT NULL
+	,DataCriacao	DATE
+	,UsuarioId		INT FOREIGN KEY REFERENCES Usuarios(UsuarioId)
+);
+
+
+CREATE TABLE Jogos
+(
+	JogoId			INT PRIMARY KEY IDENTITY
+	,NomeJogo		VARCHAR (255) NOT NULL
+	,Descricao		VARCHAR(255) NOT NULL
+	,DataLancamento Date	NOT NULL
+	,Valor			MONEY
+	,EstudioId		INT FOREIGN KEY REFERENCES Estudios(EstudioId)
+);
+
