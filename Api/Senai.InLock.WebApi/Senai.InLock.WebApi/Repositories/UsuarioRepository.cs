@@ -16,8 +16,6 @@ namespace Senai.InLock.WebApi.Repositories
                 return ctx.Usuarios.ToList();
             }
         }
-
-
         public Usuarios LogarPorEmailESenha(LoginViewModel login)
         {
             using (InLockContext ctx = new InLockContext())

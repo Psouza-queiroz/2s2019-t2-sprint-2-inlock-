@@ -18,5 +18,7 @@ namespace Senai.InLock.WebApi.Domains
 
         public Usuarios Usuario { get; set; }
         public ICollection<Jogos> Jogos { get; set; }
+
+        public Jogos Navigation { get; set; }
     }
 }

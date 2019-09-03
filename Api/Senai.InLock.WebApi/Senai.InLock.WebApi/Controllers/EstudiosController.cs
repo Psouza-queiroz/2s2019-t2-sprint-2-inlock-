@@ -40,6 +40,7 @@ namespace Senai.InLock.WebApi.Controllers
             }
         }
 
+
         [HttpGet("{id}")]
         [Authorize(Roles = "ADMINISTRADOR")]
         public IActionResult BuscarPorid(int id)
@@ -49,6 +50,7 @@ namespace Senai.InLock.WebApi.Controllers
                 return NotFound();
             return Ok(Estudio);
         }
+
 
         [HttpPut]
         [Authorize(Roles = "ADMINISTRADOR")]
@@ -69,6 +71,7 @@ namespace Senai.InLock.WebApi.Controllers
             }
         }
 
+
         [HttpDelete("{id}")]
         [Authorize(Roles = "ADMINISTRADOR")]
         public IActionResult Deletar(int id)
@@ -76,5 +79,6 @@ namespace Senai.InLock.WebApi.Controllers
             EstudioRepository.Deletar(id);
             return Ok();
         }
+
     }
 }

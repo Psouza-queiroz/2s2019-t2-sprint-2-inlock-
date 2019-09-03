@@ -27,5 +27,38 @@ namespace Senai.InLock.WebApi.Repositories
             }
         }
 
+        public Jogos BuscarPorId(int id)
+        {
+            using (InLockContext ctx = new InLockContext())
+            {
+                return ctx.Jogos.FirstOrDefault(x => x.JogoId == id);
+            }
+        }
+
+        public void Atualizar(Jogos jogos)
+        {
+            using (InLockContext ctx = new InLockContext())
+            {
+                Jogos jogoBuscado = ctx.Jogos.FirstOrDefault(x => x.JogoId == jogos.JogoId);
+                jogoBuscado.NomeJogo = jogos.NomeJogo;
+                jogoBuscado.Descricao = jogos.Descricao;
+                jogoBuscado.DataLancamento = jogos.DataLancamento;
+                jogoBuscado.Valor = jogos.Valor;
+                jogoBuscado.EstudioId = jogos.EstudioId;
+                ctx.Jogos.Update(jogoBuscado);
+                ctx.SaveChanges();
+            }
+        }
+
+        public void Deletar (int id)
+        {
+            using (InLockContext ctx = new InLockContext())
+            {
+                Jogos jogos = ctx.Jogos.Find(id);
+                ctx.Jogos.Remove(jogos);
+                ctx.SaveChanges();
+                   
+            }
+        }
     }
 }
