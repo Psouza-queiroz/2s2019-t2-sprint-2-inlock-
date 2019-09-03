@@ -11,16 +11,14 @@ namespace Senai.InLock.WebApi.Controllers
     [Route("api/[controller]")]
     [Produces("application/json")]
     [ApiController]
-    public class DesafiosController : ControllerBase
+    public class Desafios1Controller : ControllerBase
     {
         EstudioRepository EstudioRepository = new EstudioRepository();
 
         [HttpGet]
-        public IActionResult ListarEstudioJogo()
+        public IActionResult ListarEstudioUsuario()
         {
-            return Ok(EstudioRepository.ListarEstudioJogo());
+            return Ok(EstudioRepository.ListarEstudioUsuario());
         }
-
-
     }
 }

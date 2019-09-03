@@ -71,12 +71,20 @@ namespace Senai.InLock.WebApi.Repositories
         }
 
 
-
         public List<Estudios> ListarEstudioJogo()
         {
             using (InLockContext ctx = new InLockContext())
             {
-                return ctx.Estudios.Include(x => x.Navigation).ToList();
+                return ctx.Estudios.Include(x => x.Jogos).ToList();
+            }
+        }
+
+
+        public List<Estudios> ListarEstudioUsuario()
+        {
+            using (InLockContext ctx = new InLockContext())
+            {
+                return ctx.Estudios.Include(x => x.Usuario.EmailNavigation).ToList();
             }
         }
     }

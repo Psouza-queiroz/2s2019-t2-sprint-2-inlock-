@@ -16,5 +16,7 @@ namespace Senai.InLock.WebApi.Domains
         public string PermissaoUsuario { get; set; }
 
         public ICollection<Estudios> Estudios { get; set; }
+
+        public string EmailNavigation { get; set; }
     }
 }
